@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Images (too large for GitHub, mention them in README)
+real_images/
+screen_images/
+
+# CSV feature dump
+features_labels.csv
+
+# Second approach (experimental, not submitted)
+second_approach/
+
+# IDE
+.vscode/

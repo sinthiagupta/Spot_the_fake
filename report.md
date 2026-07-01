@@ -43,8 +43,8 @@ The bottleneck is the MobileNetV2 forward pass (~75ms). The Logistic Regression 
 | Deployment | Cost |
 |---|---|
 | **On-device (phone)** | **Free** — runs entirely on the user's device. No server needed. |
-| Cloud (AWS t3.micro, $0.0104/hr) | ~40,000 images/hr at 90ms each → **~$0.26 per million images** |
-| Cloud (AWS c6i.large, $0.085/hr) | ~$1.50 per million images, 3x faster throughput |
+| Cloud (AWS t3.micro, $0.0104/hr) | Approx. 40,000 images/hr → **Approx. $0.26 per million images** |
+| Cloud (AWS c6i.large, $0.085/hr) | Approx. $1.50 per million images, 3x faster throughput |
 
 On-device deployment is the best choice — runs free, works offline, and is instant after warmup.
 

@@ -1,4 +1,4 @@
-# Spot the Fake Photo — Submission Note
+# Spot the Fake Photo â€” Submission Note
 
 ## Approach
 
@@ -20,7 +20,7 @@ The intuition: MobileNetV2's deep features capture subtle differences in texture
 | Training set | 80 images | 100% |
 | **Held-out test set** | **20 images** | **95%** |
 
-The honest number is **95% on 20 held-out images** that the model never saw during training (stratified 80/20 split, random_state=42). One screen image was misclassified as real — it was a very clean, bright screen shot that produced features similar to a real photo.
+The honest number is **95% on 20 held-out images** that the model never saw during training (stratified 80/20 split, random_state=42). One screen image was misclassified as real â€” it was a very clean, bright screen shot that produced features similar to a real photo.
 
 ---
 
@@ -42,18 +42,18 @@ The bottleneck is the MobileNetV2 forward pass (~75ms). The Logistic Regression 
 
 | Deployment | Cost |
 |---|---|
-| **On-device (phone)** | **Free** — runs entirely on the user's device. No server needed. |
-| Cloud (AWS t3.micro, .0104/hr) | ~40,000 images/hr at 90ms each = **~.26 per million images** |
-| Cloud (AWS c6i.large, .085/hr) | ~.50 per million images, 3x faster throughput |
+| **On-device (phone)** | **Free** â€” runs entirely on the user's device. No server needed. |
+| Cloud (AWS t3.micro, $0.0104/hr) | ~40,000 images/hr at 90ms each â†’ **~$0.26 per million images** |
+| Cloud (AWS c6i.large, $0.085/hr) | ~$1.50 per million images, 3x faster throughput |
 
-On-device deployment is the best choice — runs free, works offline, and is instant after warmup.
+On-device deployment is the best choice â€” runs free, works offline, and is instant after warmup.
 
 ---
 
 ## What I Would Improve With More Time
 
-1. **More diverse training data** — Photos from different lighting, angles, and screen types (OLED vs LCD) to improve generalisation.
-2. **Fine-tune MobileNetV2** — Unfreeze the last 2-3 layers and fine-tune on training data to push accuracy above 97%.
-3. **Convert to TFLite / CoreML** — For phone deployment to drop latency under 10ms on modern phones.
-4. **Adaptive threshold** — Use a higher threshold (e.g., 0.7) to reduce false positives in fraud detection context.
-5. **Anti-cheating robustness** — Test against adversarial cases: screen glare removed in post-processing, printed photos, or high-resolution OLED screens.
+1. **More diverse training data** â€” Photos from different lighting, angles, and screen types (OLED vs LCD) to improve generalisation.
+2. **Fine-tune MobileNetV2** â€” Unfreeze the last 2-3 layers and fine-tune on training data to push accuracy above 97%.
+3. **Convert to TFLite / CoreML** â€” For phone deployment to drop latency under 10ms on modern phones.
+4. **Adaptive threshold** â€” Use a higher threshold (e.g., 0.7) to reduce false positives in fraud detection context.
+5. **Anti-cheating robustness** â€” Test against adversarial cases: screen glare removed in post-processing, printed photos, or high-resolution OLED screens.
